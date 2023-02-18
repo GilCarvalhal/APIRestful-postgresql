@@ -8,6 +8,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 import com.projeto.microsservicos.model.Produto;
+import com.projeto.microsservicos.model.exception.ResourceNotFoundException;
 
 @Repository
 public class ProdutoRepository {
@@ -69,7 +70,7 @@ public class ProdutoRepository {
 		// Encontra o produto na lista.
 		Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
 		if (produtoEncontrado.isEmpty()) {
-			throw new InputMismatchException("Produto não encontrado");
+			throw new ResourceNotFoundException("Produto não encontrado");
 		}
 		// Remove o produto antigo da lista.
 		deletar(produto.getId());
