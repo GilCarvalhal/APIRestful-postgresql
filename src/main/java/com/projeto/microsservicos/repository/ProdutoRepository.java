@@ -1,6 +1,7 @@
 package com.projeto.microsservicos.repository;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,6 +12,7 @@ import com.projeto.microsservicos.model.Produto;
 @Repository
 public class ProdutoRepository {
 
+	// Simulando o banco de dados.
 	private List<Produto> produtos = new ArrayList<>();
 	private Integer ultimoId = 0;
 
@@ -66,6 +68,9 @@ public class ProdutoRepository {
 	public Produto atualizar(Produto produto) {
 		// Encontra o produto na lista.
 		Optional<Produto> produtoEncontrado = obterPorId(produto.getId());
+		if (produtoEncontrado.isEmpty()) {
+			throw new InputMismatchException("Produto não encontrado");
+		}
 		// Remove o produto antigo da lista.
 		deletar(produto.getId());
 		// Adiciona o produto atualizado na lista.
