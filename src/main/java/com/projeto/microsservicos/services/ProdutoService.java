@@ -7,13 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.projeto.microsservicos.model.Produto;
-import com.projeto.microsservicos.repository.ProdutoRepository;
+import com.projeto.microsservicos.repository.ProdutoRepository_old;
 
 @Service
 public class ProdutoService {
 
 	@Autowired
-	private ProdutoRepository produtoRepository;
+	private ProdutoRepository_old produtoRepository;
 
 	/**
 	 * Metodo para retornar uma lista de produtos.

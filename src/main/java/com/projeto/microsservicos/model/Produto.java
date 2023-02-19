@@ -1,11 +1,23 @@
 package com.projeto.microsservicos.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Produto {
 
+	@Id // Vai transformar essa coluna em uma primary key
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+
 	private String nome;
+
 	private Integer quantidade;
+
 	private Double valor;
+
 	private String observacao;
 
 	public Integer getId() {
