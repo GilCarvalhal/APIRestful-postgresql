@@ -1,4 +1,4 @@
-package com.projeto.microsservicos.controller;
+package com.projeto.microsservicos.view.controllers;
 
 import java.util.List;
 import java.util.Optional;
