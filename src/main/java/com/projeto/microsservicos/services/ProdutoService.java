@@ -43,7 +43,7 @@ public class ProdutoService {
 		Optional<Produto> produto = produtoRepository.findById(id);
 		// Se não encontrar, lança exception
 		if (produto.isEmpty()) {
-			throw new ResourceNotFoundException("Produto com id: " + id + " Não encontrado.");
+			throw new ResourceNotFoundException("Produto com id " + id + " Não encontrado.");
 		}
 		// Convertendo meu optional de produto em um produtoDto
 		ProdutoDTO dto = new ModelMapper().map(produto.get(), ProdutoDTO.class);
@@ -83,7 +83,7 @@ public class ProdutoService {
 		// Se não existir, lança uma exception
 		if (produto.isEmpty()) {
 			throw new ResourceNotFoundException(
-					"Não foi possível deletar o produto com o id: " + id + " - Produto não existe");
+					"Não foi possível deletar o produto com o id " + id + " - Produto não existe");
 		}
 		// Deleta o produto pelo id
 		produtoRepository.deleteById(id);
